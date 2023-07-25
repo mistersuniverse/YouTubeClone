@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #0f0f0f;
+    font: 'Roboto', 'Arial',sans-serif;
+    font-weight: 400;
+    overflow: hidden;
+    color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: transparent;
+
+}
+
+/* Handle */
+:hover::-webkit-scrollbar-thumb {
+background: #888;
+border-radius: 10px;
+/* border-end-end-radius: 10%; */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+
