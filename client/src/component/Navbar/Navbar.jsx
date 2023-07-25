@@ -29,9 +29,9 @@ const Navbar = ({setActiveSideBar, activeSideBar}) => {
                 </div>
             </div>
 
-            <div className='flex gap-4 items-center'>
+            <div className='flex gap-4 items-center w-[1000px]'>
                 <div className='flex items-center flex-1'>
-                    <div className='rounded-l-full bg-inherit px-8 border border-[#ffffff1a] h-16 text-2xl text-[#ffffff14] items-center gap-4 w-full hidden sm:flex'>
+                    <div className='rounded-l-full bg-inherit px-8 border border-[#ffffff1a] h-16 text-2xl  text-[#ffffff14] items-center gap-4 w-full hidden sm:flex'>
                         {inputExtension && <div className='text-white'><FontAwesomeIcon icon={faMagnifyingGlass} /></div>}
                         <input className='bg-inherit focus:outline-none focus:text-white w-full' placeholder=' Search' onFocus={() => setInputExtension(true)} onBlur={() => setInputExtension(false)} />
                     </div>
@@ -49,10 +49,10 @@ const Navbar = ({setActiveSideBar, activeSideBar}) => {
             </div>
 
 
-            <div className='flex sm:gap-8 gap-2 items-center'>
+            <div className='flex sm:gap-8 gap-0.5 items-center'>
                 {   
                     userProfile?.userInfo ? (
-                    <div className='flex sm:gap-8 gap-2 items-center'>
+                    <div className='flex sm:gap-8 gap-0,25 items-center'>
                         <div>
                             <a className='text-3xl cursor-pointer rounded-full sm:w-16 sm:h-16 w-12 h-12 hover:bg-[#ffffff14] flex items-center justify-center' onMouseOver={() => setCreate(true)} onMouseOut={() => setCreate(false)} href={`/upload/${userProfile?.userInfo.sub}`}>
                                 <FontAwesomeIcon icon={faVideo} />

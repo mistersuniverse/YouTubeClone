@@ -2,7 +2,7 @@ import React from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Home, Auth, UploadContent } from './component';
+import { Home, Auth, UploadContent, ComingSoon } from './component';
 
 const App = () => {
   return (
@@ -14,6 +14,8 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/auth' element={<Auth />} />
           <Route path='/upload/:channelID' element={<UploadContent />} />
+          <Route path='/watch/:videoID' element={<ComingSoon message='video' />} />
+          <Route path='/channel/:channelID' element={<ComingSoon message='channel' />} />
         </Routes>
 
       </BrowserRouter>

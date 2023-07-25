@@ -10,13 +10,13 @@ const SideBarButton = ({ title, icon }) => (
     {title}
   </a>
 )
-const Sidebar = () => {
+const Sidebar = ({setActiveSideBar}) => {
 
   const Subscriptions=['a', 'b', 'c', 'd', 'e']
   const Explore = ['Trending', 'Shopping', 'Music', 'Films', 'Live', 'Gaming', 'News', 'Sport', 'Learning', 'Fashion & Beauty']
 
   return (
-<div className='bg-[#0f0f0f] px-6 min-[1980px]:w-1/5 overflow-y-scroll h-screen fixed w-[360px] min-[1980px]:static' onBlur={() => {}}>
+<div className='bg-[#0f0f0f] px-6 min-[1980px]:w-1/5 overflow-y-scroll h-screen fixed w-[360px] min-[1980px]:static sidebar' onFocus={() => console.log("hi")} onBlur={() => {setActiveSideBar(false)}}>
 
           <div className='flex flex-col gap-1'>
             <SideBarButton title={'Home'} icon={faHouse}/>

@@ -9,27 +9,27 @@ body {
     overflow: hidden;
     color: white;
 }
-
-/* width */
-::-webkit-scrollbar {
-    width: 15px;
+ 
+ /* custom-scrollbar.css */
+.homecontents::-webkit-scrollbar {
+width: 0px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
+/* custom-scrollbar.css */
+.sidebar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
 background: transparent;
-
 }
 
-/* Handle */
-:hover::-webkit-scrollbar-thumb {
+:hover.sidebar::-webkit-scrollbar-thumb {
 background: #888;
 border-radius: 10px;
-/* border-end-end-radius: 10%; */
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+.sidebar:hover::-webkit-scrollbar-thumb {
 background: #555;
 }
-
+  
