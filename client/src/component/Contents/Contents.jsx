@@ -13,7 +13,7 @@ const Contents = () => {
   }, []);
 
   return (
-    <div className='flex flex-wrap m-12 justify-between gap-[0.1%]'>
+    <div className='flex flex-wrap sm:m-12 m-2 justify-between gap-[0.1%]'>
       {data.map((content) => (
         <Content key={content._id} content={content} />
       ))}

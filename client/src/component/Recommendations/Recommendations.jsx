@@ -10,7 +10,7 @@ const RecommendationButton = ({recommendation}) => {
 const Recommendations = () => {
   const recommendations = [ 1, 2, 3, 4, 5, 6];
   return (
-    <div className='flex m-12 gap-4 sm:overflow-hidden overflow-x-scroll'>
+    <div className='flex sm:m-12 m-2 gap-4 sm:overflow-hidden overflow-x-scroll'>
       <RecommendationButton recommendation='All' />
       {recommendations.map((recommendation) => <RecommendationButton recommendation='Recommendation' />)}
     </div>
