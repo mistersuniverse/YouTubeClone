@@ -1,7 +1,14 @@
 import React from 'react'
 
-export const ComingSoon = ({message}) => {
+import { Navbar } from '../index';
+
+const ComingSoon = ({message}) => {
   return (
-    <div>{message}</div>
+    <div>
+      <Navbar />
+      {message}
+    </div>
   )
 }
+
+export default ComingSoon;

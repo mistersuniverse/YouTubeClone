@@ -11,11 +11,11 @@ const Content = ({ content }) => {
 
   const goToChannel = (event) => {
     event.stopPropagation();
-    navigate(`/channel/${content.channelID}`);
+    navigate(`/channel/${content.channelID}/${content.channelName}`);
   }
 
   return (
-    <div className='w-full sm:w-[49%] xl:w-[32.7%] min-[1980px]:w-[24%] flex flex-col gap-4 aspect-[4/3] mb-16' onClick={goToVideo}>
+    <div className='w-full sm:w-[49%] xl:w-[32.7%] min-[1980px]:w-[24%] flex flex-col gap-4 aspect-[4/3] mb-16 cursor-pointer' onClick={goToVideo}>
 
       <img className='rounded-2xl hover:rounded-none w-full h-4/5' src={content.thumbnail} alt='thumbnail' />
       

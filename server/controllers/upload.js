@@ -1,5 +1,8 @@
 import jwtDecode from 'jwt-decode';
+import mongoose from 'mongoose';
+
 import ContentModel from '../models/contentModel.js';
+
 
 export const uploadContent = async (req, res) => {
     const content = req.body;
@@ -20,9 +23,23 @@ export const uploadContent = async (req, res) => {
 export const fetchContents = async (req, res) => {
 
     try {
+        console.log("Hi")
             const contents = await ContentModel.find();
             res.status(200).json({ data: contents });
+            console.log("Hi2")
     } catch (error) {
         res.status(500).json({ message: error });
+    }
+}
+
+export const fetchContentsByChannel = async (req, res) => {
+    const { channelID } = req.params;
+    try {
+        
+        const contentsByChannel = await ContentModel.find({channelID});
+        
+        res.status(200).json({ data: contentsByChannel});
+    } catch (error) {
+        res.status(404).json({message: error});
     }
 }

@@ -16,16 +16,15 @@ const Navbar = ({setActiveSideBar, activeSideBar}) => {
     const navigate = useNavigate();
 
     return (
-        <div className='flex justify-between sm:px-6 sm:py-6 sm:gap-8 gap-2 sm:h-20 h-10 py-12 px-2'>
+        <div className='flex justify-between sm:px-6 sm:py-6 sm:gap-8 gap-2 sm:h-20 h-10 py-12 px-2 fixed'>
 
             <div className='flex gap-6 items-center '>
                 <div className='text-3xl cursor-pointer pb-0.5 rounded-full sm:w-16 sm:h-16 w-8 h-8 hover:bg-[#ffffff14] sm:flex hidden items-center justify-center' onClick={() => setActiveSideBar(!activeSideBar)}>
                     <FontAwesomeIcon icon={faBars} />
                 </div>
 
-                <div className='w-36 fill-white cursor-pointer'>
+                <div className='w-36 fill-white cursor-pointer' onClick={() => navigate('/')}>
                     <YouTubeLogo />
-                    
                 </div>
             </div>
 
@@ -54,7 +53,7 @@ const Navbar = ({setActiveSideBar, activeSideBar}) => {
                     userProfile?.userInfo ? (
                     <div className='flex sm:gap-8 gap-0,25 items-center'>
                         <div>
-                            <a className='text-3xl cursor-pointer rounded-full sm:w-16 sm:h-16 w-12 h-12 hover:bg-[#ffffff14] flex items-center justify-center' onMouseOver={() => setCreate(true)} onMouseOut={() => setCreate(false)} href={`/upload/${userProfile?.userInfo.sub}`}>
+                            <a className='text-3xl cursor-pointer rounded-full sm:w-16 sm:h-16 w-12 h-12 hover:bg-[#ffffff14] flex items-center justify-center' onMouseOver={() => setCreate(true)} onMouseOut={() => setCreate(false)} href={`/studio/${userProfile?.userInfo.sub}/${userProfile?.userInfo.name}`}>
                                 <FontAwesomeIcon icon={faVideo} />
                             </a>
                             { create && <div className='absolute top-32 bg-[#717171] rounded-lg p-4 text-lg'>Create</div> }

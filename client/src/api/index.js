@@ -14,4 +14,6 @@ API.interceptors.request.use((req) => {
 
 
 export const uploadContent = (contentData, channelID, channelName, channelLogo) => API.post(`/channel/${channelID}/videos/upload?channelname=${channelName}&channellogo=${channelLogo}`, contentData);
+export const fetchContentsByChannel = (channelID) => API.get(`/contents/${channelID}`);
 export const fetchContents = () => API.get('/contents');
+export const deleteContent = (channelID) => API.delete(`/content/delete/${channelID}`);

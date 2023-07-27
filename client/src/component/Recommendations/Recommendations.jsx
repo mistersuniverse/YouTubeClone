@@ -12,7 +12,7 @@ const Recommendations = () => {
   return (
     <div className='flex sm:m-12 m-2 gap-4 sm:overflow-hidden overflow-x-scroll homecontents'>
       <RecommendationButton recommendation='All' primary/>
-      {recommendations.map((recommendation) => <RecommendationButton recommendation='Recommendation' />)}
+      {recommendations.map((recommendation, index) => <RecommendationButton key={index} recommendation='Recommendation' />)}
     </div>
   )
 }

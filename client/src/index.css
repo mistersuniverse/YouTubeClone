@@ -6,8 +6,8 @@ body {
     background-color: #0f0f0f;
     font: 'Roboto', 'Arial',sans-serif;
     font-weight: 400;
-    overflow: hidden;
     color: white;
+    /* overflow: hidden; */
 }
  
  /* custom-scrollbar.css */
@@ -32,4 +32,17 @@ border-radius: 10px;
 .sidebar:hover::-webkit-scrollbar-thumb {
 background: #555;
 }
-  
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+background: transparent;
+}
+
+:hove
+::-webkit-scrollbar-thumb {
+background: transparent;
+border-radius: 10px;
+}
