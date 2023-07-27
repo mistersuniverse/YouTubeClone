@@ -81,24 +81,24 @@ const Row = ({ content }) => {
 
 const Row2 = ({content}) => (
     <div className='flex sm:gap-4 min-w-[200px] gap-12 h-20 hover:bg-[#242323] py-2' >
-      <div className='basis-1/4 sm:text-sm text-xs text-center'>
+      <div className='basis-1/4 sm:text-sm text-xs text-center h-16'>
         {content?.visibility ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />}
       </div>
-      <div className='basis-1/4 min-w-[100px] sm:text-sm text-xs text-center'>
+      <div className='basis-1/4 min-w-[100px] sm:text-sm text-xs text-center h-16'>
         {new Date(content?.createdAt).toDateString().slice(4)}
       </div>
-      <div className='basis-1/4 min-w-[100px] sm:text-sm text-xs text-center'>
+      <div className='basis-1/4 min-w-[100px] sm:text-sm text-xs text-center h-16'>
         {content?.likes || 0}
       </div>
     </div>
   )
 
 const Header1 = () => (
-      <div className=' flex sm:gap-4 gap-1'>
+      <div className=' flex sm:gap-4 gap-1 h-8'>
         <div className=''>
           <input className='' type='checkbox' />
         </div>
-        <div className='text-sm sm:text-lg'>
+        <div className='text-sm sm:text-lg text-center'>
           <h3>Video</h3>
         </div>
         <div className='basis-1/4 text-sm sm:text-lg'>
@@ -108,7 +108,7 @@ const Header1 = () => (
 );
 
 const Header2 = () => (
-  <div className='flex sm:gap-4 min-w-[200px] gap-12 sticky top-0 z-10' >
+  <div className='flex sm:gap-4 min-w-[200px] gap-12 h-8' >
     <div className='basis-1/4 text-sm sm:text-lg text-center'>
       <h3>Visibility</h3>
     </div>
@@ -136,12 +136,12 @@ const Videos = () => {
   console.log(contents[0]);
 
   return (
-    <div className='m-6 flex gap-4 overflow-y-scroll h-screen'>
-      <div className='flex flex-col min-w-[160px] w-1/2 '> 
+    <div className='m-6 grid gap-4 overflow-y-scroll sm:h-[60vh] h-[72vh] grid-cols-2'>
+      <div className='flex flex-col min-w-[160px] w-1/2'> 
         <Header1 />
         {contents.map((content) => <Row key={content._id} content={content} />)}
       </div>
-      <div className='flex flex-col w-[300px] sm:w-1/2 overflow-x-scroll '>
+      <div className='flex flex-col w-[300px] sm:w-1/2 overflow-x-scroll overflow-y-hidden'>
         <Header2 />
         {contents.map((content) => <Row2 key={content._id} content={content} />)}
       </div>

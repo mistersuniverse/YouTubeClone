@@ -12,10 +12,8 @@ export const uploadContent = async ( contentDataData ) => {
 } 
 
 export const fetchContents = async () => {
-    console.log("hi1")
     try {
         const { data } = await api.fetchContents();
-        console.log("hi2");
         return data;
     } catch (error) {
         console.log(error);

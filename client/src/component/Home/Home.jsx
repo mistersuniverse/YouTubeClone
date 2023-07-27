@@ -6,13 +6,13 @@ const Home = () => {
   const [ activeSideBar, setActiveSideBar ] = useState(false);
 
   return (
-    <div className='text-white' >
+    <div className='text-white fixed w-full' >
       <Navbar activeSideBar={activeSideBar} setActiveSideBar={setActiveSideBar} />
 
-      <div className='flex w-full' onClick={() => setActiveSideBar(false)}>
-        { activeSideBar && <Sidebar setActiveSideBar={setActiveSideBar}/>}
-        <div className='w-full'>
-          <Recommendations />
+      <div className='flex w-full pt-12'>
+        <Sidebar activeSideBar={activeSideBar} setActiveSideBar={setActiveSideBar}/>
+        <div className='w-full z-10'>
+          <Recommendations setActiveSideBar={setActiveSideBar} activeSideBar={activeSideBar}/>
           <Contents />
         </div>
       </div>

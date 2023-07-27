@@ -10,14 +10,14 @@ const Navbar = ({setStudioSideBar, showStudioSideBar}) => {
     const navigate = useNavigate();
 
     return (
-        <div className='flex justify-between items-center sm:px-6 sm:py-8 sm:gap-4 gap-1 sm:h-10 h-4 py-6 px-1 shadow-xl fixed w-full bg-'>
+        <div className='flex justify-between items-center sm:px-2 sm:py-8 sm:gap-4 gap-1 sm:h-10 h-4 py-6 px-1 shadow-xl fixed w-full'>
 
             <div className='flex gap-4 items-center '>
                 <div className='text-xl cursor-pointer pb-0.5 rounded-full sm:w-12 sm:h-12 w-8 h-8 hover:bg-[#ffffff14] sm:flex hidden items-center justify-center' onClick={() => setStudioSideBar(!showStudioSideBar)}>
                     <FontAwesomeIcon icon={faBars} />
                 </div>
 
-                <div className='sm:w-24 w-[4.5rem] fill-white cursor-pointer' onClick={() => navigate(`/studio/${userProfile?.userInfo.sub}/${userProfile?.userInfo.name}`)}>
+                <div className='sm:w-24 w-[5rem] ml-4 fill-white cursor-pointer' onClick={() => navigate(`/studio/${userProfile?.userInfo.sub}/${userProfile?.userInfo.name}`)}>
                     <img src="https://www.gstatic.com/youtube/img/creator/yt_studio_logo_white.svg" />   
                 </div>
             </div>

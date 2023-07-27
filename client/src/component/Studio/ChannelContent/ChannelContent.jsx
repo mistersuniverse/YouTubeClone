@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link, Routes, Route, Navigate } from 'react-router-dom';
 
 import { Videos, Lives, Posts, Playlists, Podcasts } from './index';
 
@@ -11,7 +11,7 @@ const ChannelContent = () => {
     <div className='w-full border-[#484848]'>
       <h1 className='lg:text-2xl sm:text-xl text-lg sm:font-bold font-semibold sm:m-6 m-4'>Channel content</h1>
       <nav>
-        <ul className='flex gap-8 sm:text-lg text-sm font-semibold sm:mx-6 mx-4 overflow-x-scroll homecontents'>
+        <ul className='flex sm:gap-8 gap-4 sm:text-lg text-sm font-semibold sm:mx-6 mx-4 overflow-x-scroll homecontents'>
           {headers.map((header, index) => (
             <li className='flex flex-col gap-2 justify-between items-center' key={index}>
               <Link to={`./content/${header}`} onClick={() => setNavElementState(header)}>
@@ -32,6 +32,7 @@ const ChannelContent = () => {
       <hr className='sm:my-2 my-1 border-inherit' />
 
       <Routes >
+
         <Route path='content/videos' element={<Videos />} />
         <Route path='content/lives' element={<Lives />} />
         <Route path='content/posts' element={<Posts />} />

@@ -13,7 +13,7 @@ const Contents = () => {
   }, []);
 
   return (
-    <div className='flex flex-wrap sm:m-12 m-2 justify-between gap-[0.1%] h-[calc(100vh-80px)] overflow-y-scroll homecontents'>
+    <div className='flex flex-wrap sm:my-8 sm:mx-2 m-2 justify-between gap-[0.1%] h-[calc(100vh-140px)] overflow-y-scroll homecontents'>
       {data.map((content) => (
         <Content key={content._id} content={content} />
       ))}
