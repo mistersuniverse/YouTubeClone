@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Navbar, Sidebar, Contents, Recommendations } from '../index';
 const Home = () => {
 
   const [ activeSideBar, setActiveSideBar ] = useState(false);
+
+  useEffect(() => (
+    setActiveSideBar(false)
+  ), [screen.width])
 
   return (
     <div className='text-white fixed w-full' >

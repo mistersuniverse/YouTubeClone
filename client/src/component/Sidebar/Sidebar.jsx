@@ -16,23 +16,18 @@ const Sidebar = ({activeSideBar, setActiveSideBar}) => {
   const Explore = ['Trending', 'Shopping', 'Music', 'Films', 'Live', 'Gaming', 'News', 'Sport', 'Learning', 'Fashion & Beauty'];
   const [ activeButton, setActiveButton ] = useState('Home');
 
-  
-  useEffect(() => (
-    setActiveSideBar(false)
-  ), [screen.width])
-
-  if (screen.width < 640 && !activeSideBar ) return (
+  if (screen.width < 640 && activeSideBar ) return (
     <div className='flex flex-col gap-6 w-30 mt-4 px-2 fixed z-50 bg-[#0f0f0f] h-screen '>
         <button className='rounded-lg py-1 px-2 text-xs font-medium bg-red-500 hover:bg-red-800 sm:hidden' onClick={() => setActiveSideBar(!activeSideBar)}>S</button>
-        <FontAwesomeIcon icon={faHouse} activeSideBar={activeSideBar} activeButton={activeButton} setActiveButton={setActiveButton}/>
-        <FontAwesomeIcon icon={faHouse} activeSideBar={activeSideBar} activeButton={activeButton} setActiveButton={setActiveButton}/>
-        <FontAwesomeIcon icon={faHouse} activeSideBar={activeSideBar} activeButton={activeButton} setActiveButton={setActiveButton}/>
-        <FontAwesomeIcon icon={faHouse} activeSideBar={activeSideBar} activeButton={activeButton} setActiveButton={setActiveButton}/>
+        <FontAwesomeIcon icon={faHouse}/>
+        <FontAwesomeIcon icon={faHouse}/>
+        <FontAwesomeIcon icon={faHouse}/>
+        <FontAwesomeIcon icon={faHouse}/>
       </div>
   )
 
   return (
-  <div className={`bg-[#0f0f0f] min-[1980px]:w-1/5 overflow-y-scroll h-[93vh] ${activeSideBar ? 'w-[260px] sm:px-[0.17rem]' : 'w-[60px] px-2 sm:relative fixed'} min-[1980px]:static sidebar pt-4 z-20  sm:ml-1 sm:mt-3.5`} onFocus={() => console.log("hi")} onBlur={() => {setActiveSideBar(false)}}>
+  <div className={`bg-[#0f0f0f] min-[1980px]:w-1/5 overflow-y-scroll h-[93vh] ${activeSideBar ? 'w-[260px] sm:px-[0.17rem]' : 'w-[60px] px-2'} sm:flex flex-col hidden min-[1980px]:static sidebar pt-4 z-20  sm:ml-1 sm:mt-3.5`} onFocus={() => console.log("hi")} onBlur={() => {setActiveSideBar(false)}}>
       <div className='flex flex-col gap-1'>
         <button className='rounded-lg py-1 px-1 m-1.5 text-xs font-medium bg-red-500 hover:bg-red-800 sm:hidden' onClick={() => setActiveSideBar(!activeSideBar)}>S</button>
         <SideBarButton title={'Home'} icon={faHouse} activeSideBar={!activeSideBar} activeButton={activeButton} setActiveButton={setActiveButton}/>
