@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Navbar } from '../index';
+import Navbar from '../YouTube/Navbar/Navbar';
 
 const ComingSoon = ({message}) => {
   return (

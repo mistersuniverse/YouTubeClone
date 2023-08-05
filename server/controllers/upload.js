@@ -23,10 +23,8 @@ export const uploadContent = async (req, res) => {
 export const fetchContents = async (req, res) => {
 
     try {
-        console.log("Hi")
             const contents = await ContentModel.find();
             res.status(200).json({ data: contents });
-            console.log("Hi2")
     } catch (error) {
         res.status(500).json({ message: error });
     }
@@ -34,12 +32,36 @@ export const fetchContents = async (req, res) => {
 
 export const fetchContentsByChannel = async (req, res) => {
     const { channelID } = req.params;
+
     try {
-        
         const contentsByChannel = await ContentModel.find({channelID});
         
         res.status(200).json({ data: contentsByChannel});
     } catch (error) {
         res.status(404).json({message: error});
     }
+}
+
+export const fetchContentByID = async (req, res) => {
+    const { contentID } = req.params;
+    try {
+        const contentByID = await ContentModel.find({_id: contentID});
+        res.status(200).json({ data: contentByID});
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const fetchChannelByContent = async (req, res) => {
+    const { channelID } = req.params;
+    try { 
+        const channelbyContent = await UserModel.find({_id: channelID});
+
+    } catch (error) {
+    }
+}
+
+export const home = (req, res) => {
+    res.send("Welcome to Backend Server of YouTube Clone App");
 }

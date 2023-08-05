@@ -1,10 +1,11 @@
 import React, {useState, useEffect, useRef } from 'react';
-import { fetchContentsByChannel } from '../../../actions/upload';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faEye, faEyeSlash, faHouse } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
+import { fetchContentsByChannel } from '../../../actions/upload';
 import { deleteContent } from '../../../actions/upload';
+import CircularProgress from '../../../elements/CircularProgress';  
 
 const Row = ({ content }) => {
   
@@ -133,7 +134,7 @@ const Videos = () => {
       .catch((error) => console.error(error));
   }, []);
 
-  console.log(contents[0]);
+  if (!contents.length) return <CircularProgress />;
 
   return (
     <div className='m-6 grid gap-4 overflow-y-scroll sm:h-[60vh] h-[72vh] grid-cols-2'>

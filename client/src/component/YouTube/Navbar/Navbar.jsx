@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMicrophone, faMagnifyingGlass, faVideo, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { faBell, faUser } from '@fortawesome/free-regular-svg-icons';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import YouTubeLogo from './YouTubeLogo';
+import UserOptions from './UserOptions';
 
 const Navbar = ({setActiveSideBar, activeSideBar}) => {
     const [ inputExtension, setInputExtension ] = useState(false);
@@ -12,8 +13,14 @@ const Navbar = ({setActiveSideBar, activeSideBar}) => {
     const [ searchButton, setSearchButton ] = useState(false);
     const [ create, setCreate ] = useState(false);
     const [ bell, setBell ] = useState(false);
-    const userProfile = JSON.parse(localStorage.getItem('userProfile'));
+    const [ userOptions, setUserOptions ] = useState(false);
+    const [ userProfile, setUserProfile ] = useState(JSON.parse(localStorage.getItem('userProfile')));
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        setUserProfile(JSON.parse(localStorage.getItem('userProfile')));
+    }, [location]);
 
     return (
         <div className='flex justify-between sm:px-2 sm:py-8 sm:gap-4 gap-1 sm:h-10 h-10 py-7 px-2 fixed w-full'>
@@ -75,16 +82,17 @@ const Navbar = ({setActiveSideBar, activeSideBar}) => {
                 {
                     userProfile?.userInfo ? (
                         <div>
-                            <div className='' onClick={() => navigate('/auth')}>
+                            <div className='' onClick={() => setUserOptions(!userOptions)}>
 
                             {
                                 userProfile.userInfo?.picture ? (
                                     <img className='rounded-full max-w-none sm:w-9 sm:h-9 h-7 w-7' src={userProfile.userInfo.picture} />
                                 ) : (
-                                    <div className='rounded-full'>{userProfile.userInfo.name.charAt(0)}</div>
+                                    <div className='bg-red-700 rounded-full max-w-none sm:w-9 sm:h-9 h-7 w-7 flex items-center justify-center border text-lg sm:text-xl'>{userProfile.userInfo.name.charAt(0).toUpperCase()}</div>
                                 )
                             }
                             </div>
+                            { userOptions && <UserOptions userProfile={userProfile}/> }
                         </div>
                     ) : (
                         

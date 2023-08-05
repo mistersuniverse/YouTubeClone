@@ -14,9 +14,9 @@ const Studio = () => {
         <SideBar showStudioSideBar={showStudioSideBar}/>
         <Routes>
           <Route path='dashboard' element={<Dashboard />}/>
-          <Route path='content/videos/*' element={<ChannelContent />}/>
+          <Route path='/content/*' element={<ChannelContent />}/>
           <Route path='/' element={<Navigate to='dashboard' />} />
-          <Route path='/content' element={<Navigate to='videos' />} />
+          {/* <Route path='/content/*' element={<Navigate to='videos' />} /> */}
         </Routes>
       </div>
       

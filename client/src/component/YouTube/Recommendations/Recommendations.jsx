@@ -8,7 +8,7 @@ const RecommendationButton = ({recommendation, primary}) => {
   );
 }
 const Recommendations = ({setActiveSideBar, activeSideBar}) => {
-  const recommendations = [ 1, 2, 3, 4, 5, 6];
+  const recommendations = [ 1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <div className='flex sm:my-8 sm:mx-2 m-2 sm:gap-2 gap-1 sm:overflow-hidden overflow-x-scroll homecontents'>
       <button className='rounded-lg sm:py-2 py-1 sm:px-4 px-2 mt-2 sm:mt-0 sm:text-sm text-xs font-medium bg-red-500 hover:bg-red-800 sm:hidden' onClick={() => setActiveSideBar(!activeSideBar)}>S</button>

@@ -15,7 +15,7 @@ const Content = ({ content }) => {
   }
 
   return (
-    <div className='w-full sm:w-[49%] xl:w-[32.7%] min-[1980px]:w-1/6 flex flex-col aspect-[4/3] mb-4 cursor-pointer z-10' onClick={goToVideo}>
+    <div className='w-full sm:w-[49%] xl:w-[32.7%] min-[1980px]:w-[15%] flex flex-col aspect-[4/3] mb-4 cursor-pointer' onClick={goToVideo}>
 
       <img className='sm:rounded-2xl rounded-md hover:rounded-none w-full h-4/5' src={content.thumbnail} alt='thumbnail' />
       

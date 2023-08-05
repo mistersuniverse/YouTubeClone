@@ -1,11 +1,6 @@
-import Navbar from "./Navbar/Navbar";
-import Home from "./Home/Home";
-import Sidebar from "./Sidebar/Sidebar";
+import { Home, ChannelPage, WatchPage } from "./YouTube";
 import Auth from './Auth/Auth';
-import Contents from "./Contents/Contents";
-import UploadContent from './UploadContent/UploadContent';
-import Recommendations from './Recommendations/Recommendations';
-import ComingSoon from "./ComingSoon/ComingSoon";
-import Studio from "./Studio/Studio";
+import Studio from './Studio/Studio';
+import ComingSoon   from './ComingSoon/ComingSoon';
 
-export { Navbar, Home, Sidebar, Auth, Contents, UploadContent, Recommendations, ComingSoon, Studio };
+export { Home, Auth, Studio, ComingSoon, ChannelPage, WatchPage };

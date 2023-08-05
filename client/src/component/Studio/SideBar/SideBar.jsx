@@ -30,8 +30,13 @@ const SideBar = ({showStudioSideBar}) => {
 
   return (
     <div className={`h-screen border-r border-[#484848] px-1 ${showStudioSideBar ? 'min-w-[200px]' : 'w-[65px]'}`}>
-      <div className={`${showStudioSideBar ? 'h-[30%]' : 'h-[13%]'} flex justify-center items-center flex-col`}>
-        <img className='rounded-full h-1/2' src={userProfile.userInfo.picture} alt='channel image' onClick={() => navigate(`/channel/${userProfile?.userInfo.sub}/${userProfile?.userInfo.name}`)}/>
+      <div className={`${showStudioSideBar ? 'h-[30%]' : 'h-[13%]'} flex justify-center items-center flex-col`}  onClick={() => navigate(`/channel/${userProfile?.userInfo.sub || userProfile?.userInfo._id}/${userProfile?.userInfo.name}`)}>
+        { userProfile?.userInfo?.picture ? (
+            <img className='rounded-full h-1/2' src={userProfile.userInfo.picture} alt='channel image'/>
+          ) : (
+            <div className='bg-red-700 rounded-full h-1/2 aspect-square flex items-center justify-center text-[3em]'>{userProfile?.userInfo.name.charAt(0).toUpperCase()}</div>
+          )
+        }
         { showStudioSideBar && <h2 className='text-lg mt-1 font-semibold'>Your Channel</h2> }
         { showStudioSideBar && <h3 className='text-sm text-[#969595] font-semibold'>{userProfile.userInfo.name}</h3> }
       </div>

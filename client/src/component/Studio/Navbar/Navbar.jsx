@@ -4,8 +4,11 @@ import { faBars, faMagnifyingGlass, faVideo, faEllipsisVertical } from '@fortawe
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
+import UserOptions from './UserOptions';
+
 const Navbar = ({setStudioSideBar, showStudioSideBar}) => {
     const [ create, setCreate ] = useState(false);
+    const [ userOptions, setUserOptions ] = useState(false);
     const userProfile = JSON.parse(localStorage.getItem('userProfile'));
     const navigate = useNavigate();
 
@@ -17,7 +20,7 @@ const Navbar = ({setStudioSideBar, showStudioSideBar}) => {
                     <FontAwesomeIcon icon={faBars} />
                 </div>
 
-                <div className='sm:w-24 w-[5rem] ml-4 fill-white cursor-pointer' onClick={() => navigate(`/studio/${userProfile?.userInfo.sub}/${userProfile?.userInfo.name}`)}>
+                <div className='sm:w-24 w-[5rem] ml-4 fill-white cursor-pointer' onClick={() => navigate(`/studio/${userProfile?.userInfo.sub || userProfile?.userInfo._id}/${userProfile?.userInfo.name}`)}>
                     <img src="https://www.gstatic.com/youtube/img/creator/yt_studio_logo_white.svg" />   
                 </div>
             </div>
@@ -48,21 +51,22 @@ const Navbar = ({setStudioSideBar, showStudioSideBar}) => {
                 {
                     userProfile?.userInfo ? (
                         <div>
-                            <div className='' onClick={() => navigate('/auth')}>
+                            <div className='' onClick={() => setUserOptions(!userOptions)}>
 
                             {
                                 userProfile.userInfo?.picture ? (
-                                    <img className='rounded-full max-w-none sm:w-10 sm:h-10 h-8 w-8' src={userProfile.userInfo.picture} />
+                                    <img className='rounded-full max-w-none sm:w-9 sm:h-9 h-7 w-7' src={userProfile.userInfo.picture} />
                                 ) : (
-                                    <div className='rounded-full'>{userProfile.userInfo.name.charAt(0)}</div>
+                                    <div className='bg-red-700 rounded-full max-w-none sm:w-9 sm:h-9 h-7 w-7 flex items-center justify-center border text-lg sm:text-xl'>{userProfile.userInfo.name.charAt(0).toUpperCase()}</div>
                                 )
                             }
                             </div>
+                            { userOptions && <UserOptions userProfile={userProfile}/> }
                         </div>
                     ) : (
                         
                         <div className=''>
-                            <div className='flex items-center gap-1.5 sm:w-[100px] sm:border border-[#ffffff1a] rounded-full px-2 sm:h-10 h-6 text-[#3ea6ff] cursor-pointer hover:bg-[#98bfe1] hover:bg-opacity-40' onClick={() => navigate('/auth')}>
+                            <div className='flex items-center gap-1.5 sm:w-[100px] sm:border border-[#ffffff1a] rounded-full px-2 sm:h-9 h-6 text-[#3ea6ff] cursor-pointer hover:bg-[#98bfe1] hover:bg-opacity-40' onClick={() => navigate('/auth')}>
                                 <div className='border border-[#3ea6ff] rounded-full w-6 h-6 flex items-center justify-center text-md'>
                                     <FontAwesomeIcon icon={faUser} />
                                 </div>

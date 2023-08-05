@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Content from './Content/Content';
-import { fetchContents } from '../../actions/upload';
+import { fetchContents } from '../../../actions/upload';
+
+import CircularProgress from '../../../elements/CircularProgress';
 
 const Contents = () => {
   const [data, setData] = useState([]);
@@ -13,10 +15,11 @@ const Contents = () => {
   }, []);
 
   return (
-    <div className='flex flex-wrap sm:my-8 sm:mx-2 m-2 justify-between gap-[0.1%] h-[calc(100vh-140px)] overflow-y-scroll homecontents'>
-      {data.map((content) => (
+    <div className='flex flex-wrap sm:my-8 sm:mx-12 m-2 justify-between gap-[0.1%] h-[calc(100vh-140px)] overflow-y-scroll homecontents'>
+      {data?.length ? (data.map((content) => (
         <Content key={content._id} content={content} />
-      ))}
+      ))) : ( <CircularProgress />)
+      }
     </div>
   );
 };

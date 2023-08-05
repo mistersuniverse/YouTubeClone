@@ -30,6 +30,30 @@ export const fetchContentsByChannel = async (channelID) => {
     }
 }
 
+export const fetchContentByID = async (contentID) => {
+    try {
+
+        const { data }= await api.fetchContentByID(contentID); 
+        return data;
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const fetchChannelByContent = async (channelID) => {
+    try {
+
+        const { data }= await api.fetchChannelByContent(channelID); 
+        return data;
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+    
 export const deleteContent = async (channelID) => {
     try { 
         await api.deleteContent(channelID);

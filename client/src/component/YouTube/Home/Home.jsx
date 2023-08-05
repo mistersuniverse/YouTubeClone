@@ -13,9 +13,9 @@ const Home = () => {
     <div className='text-white fixed w-full' >
       <Navbar activeSideBar={activeSideBar} setActiveSideBar={setActiveSideBar} />
 
-      <div className='flex w-full pt-12'>
+      <div className='flex w-full pt-12 mx-auto'>
         <Sidebar activeSideBar={activeSideBar} setActiveSideBar={setActiveSideBar}/>
-        <div className='w-full z-10'>
+        <div className='w-full'>
           <Recommendations setActiveSideBar={setActiveSideBar} activeSideBar={activeSideBar}/>
           <Contents />
         </div>

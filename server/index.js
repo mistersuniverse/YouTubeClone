@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import { uploadRoutes } from './routes/index.js';
+import { uploadRoutes, authRoutes } from './routes/index.js';
 
 const app = express();
 dotenv.config();
@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true, limit: '30mb' }));
 
 app.use(cors());
 
+app.use('/users', authRoutes);
 app.use('/', uploadRoutes);
 
 const { PORT } = process.env;

@@ -14,7 +14,7 @@ const ChannelContent = () => {
         <ul className='flex sm:gap-8 gap-4 sm:text-lg text-sm font-semibold sm:mx-6 mx-4 overflow-x-scroll homecontents'>
           {headers.map((header, index) => (
             <li className='flex flex-col gap-2 justify-between items-center' key={index}>
-              <Link to={`./content/${header}`} onClick={() => setNavElementState(header)}>
+              <Link to={`./${header}`} onClick={() => setNavElementState(header)}>
                 {header}
               </Link>
               {navElementState === header && (
@@ -30,14 +30,14 @@ const ChannelContent = () => {
       <button className='mx-4 sm:mx-6 sm:text-lg text-sm'>Filter</button>
 
       <hr className='sm:my-2 my-1 border-inherit' />
-
+                
       <Routes >
-
-        <Route path='content/videos' element={<Videos />} />
-        <Route path='content/lives' element={<Lives />} />
-        <Route path='content/posts' element={<Posts />} />
-        <Route path='content/playlists' element={<Playlists />} />
-        <Route path='content/podcasts' element={<Podcasts />} />
+        <Route path='/' element={<Navigate to='videos' />} />
+        <Route path='videos' element={<Videos />} />
+        <Route path='lives' element={<Lives />} />
+        <Route path='posts' element={<Posts />} />
+        <Route path='playlists' element={<Playlists />} />
+        <Route path='podcasts' element={<Podcasts />} />
       </Routes>
     </div>
   );
