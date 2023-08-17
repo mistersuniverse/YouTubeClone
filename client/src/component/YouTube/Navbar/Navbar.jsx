@@ -23,7 +23,7 @@ const Navbar = ({setActiveSideBar, activeSideBar}) => {
     }, [location]);
 
     return (
-        <div className='flex justify-between sm:px-2 sm:py-8 sm:gap-4 gap-1 sm:h-10 h-10 py-7 px-2 fixed w-full'>
+        <div className='flex justify-between sm:px-2 sm:py-8 sm:gap-4 gap-1 sm:h-10 h-10 py-7 px-2 fixed w-full bg-[#0f0f0f]'>
 
             <div className='flex gap-4 items-center '>
                 <div className='text-xl cursor-pointer pb-0.5 rounded-full sm:w-10 sm:h-10 w-8 h-8 hover:bg-[#ffffff14] sm:flex hidden items-center justify-center' onClick={() => setActiveSideBar(!activeSideBar)}>
