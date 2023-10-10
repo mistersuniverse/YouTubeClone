@@ -22,7 +22,7 @@ const port = PORT || 5000;
 
 const startServer = async () => {
   try {
-    await mongoose.connect(process.env.CONNECTION_URL, {
+    await mongoose.connect("mongodb+srv://dummysingh2023april:DUMMY123@cluster0.hmdvgdd.mongodb.net/?retryWrites=true&w=majority", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
